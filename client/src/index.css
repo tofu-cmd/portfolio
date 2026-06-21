@@ -1,0 +1,324 @@
+/* ============================================================
+   SHAUNDRE PORTFOLIO — Graphite Blueprint Design System
+   Dark theme: deep slate bg, electric cyan accent, Space Grotesk headings
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand tokens */
+  --color-cyan: var(--cyan);
+  --color-cyan-dim: var(--cyan-dim);
+  --color-amber: var(--amber);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border-subtle);
+}
+
+/* Dark theme (default) — Graphite Blueprint palette */
+:root {
+  --radius: 0.5rem;
+
+  /* Brand colors */
+  --cyan: oklch(0.78 0.18 200);          /* #00d4ff electric cyan */
+  --cyan-dim: oklch(0.78 0.18 200 / 15%);
+  --amber: oklch(0.87 0.17 85);          /* #ffd166 amber CTA */
+
+  /* Backgrounds */
+  --background: oklch(0.175 0.01 255);   /* #1a1d23 deep slate */
+  --surface: oklch(0.205 0.01 255);      /* #22262e card surface */
+  --surface-raised: oklch(0.235 0.01 255); /* slightly lifted */
+  --border-subtle: oklch(0.27 0.01 255); /* #2e3340 */
+
+  /* Text */
+  --foreground: oklch(0.87 0.005 255);   /* #eef0f5 near-white headings */
+  --muted-foreground: oklch(0.72 0.01 255); /* #c8cdd8 body text */
+
+  /* Semantic tokens */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: var(--cyan);
+  --primary-foreground: oklch(0.12 0.01 255);
+  --secondary: var(--surface-raised);
+  --secondary-foreground: var(--muted-foreground);
+  --muted: var(--surface);
+  --accent: var(--cyan-dim);
+  --accent-foreground: var(--cyan);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: var(--border-subtle);
+  --input: var(--border-subtle);
+  --ring: var(--cyan);
+
+  /* Charts */
+  --chart-1: var(--cyan);
+  --chart-2: oklch(0.65 0.15 220);
+  --chart-3: oklch(0.55 0.12 240);
+  --chart-4: oklch(0.45 0.10 260);
+  --chart-5: oklch(0.35 0.08 280);
+
+  /* Sidebar */
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--cyan);
+  --sidebar-primary-foreground: oklch(0.12 0.01 255);
+  --sidebar-accent: var(--cyan-dim);
+  --sidebar-accent-foreground: var(--cyan);
+  --sidebar-border: var(--border-subtle);
+  --sidebar-ring: var(--cyan);
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Force dark class on html */
+html {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    color: oklch(0.87 0.005 255);
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    @apply cursor-pointer;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.175 0.01 255);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.27 0.01 255);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.78 0.18 200 / 60%);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1200px;
+    }
+  }
+
+  /* Cyan accent left-border — signature motif */
+  .accent-border-left {
+    border-left: 2px solid oklch(0.78 0.18 200);
+    padding-left: 1rem;
+  }
+
+  /* Section heading with cyan underline */
+  .section-heading {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: oklch(0.78 0.18 200);
+  }
+
+  /* Tech tag — monospaced code style */
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: oklch(0.78 0.18 200 / 10%);
+    color: oklch(0.78 0.18 200);
+    border: 1px solid oklch(0.78 0.18 200 / 25%);
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    display: inline-block;
+  }
+
+  /* Card with cyan left-border accent */
+  .project-card {
+    background: oklch(0.205 0.01 255);
+    border: 1px solid oklch(0.27 0.01 255);
+    border-left: 3px solid oklch(0.78 0.18 200);
+    border-radius: 6px;
+    transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 180ms ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px oklch(0 0 0 / 40%), 0 0 0 1px oklch(0.78 0.18 200 / 20%);
+    border-left-color: oklch(0.78 0.18 200);
+  }
+
+  /* Dot-grid background pattern */
+  .dot-grid {
+    background-image: radial-gradient(circle, oklch(0.78 0.18 200 / 12%) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Entrance animation */
+  .animate-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* CTA button press effect */
+  .btn-press:active {
+    transform: scale(0.97);
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Nav underline slide */
+  .nav-link {
+    position: relative;
+    color: oklch(0.72 0.01 255);
+    transition: color 200ms ease;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: oklch(0.78 0.18 200);
+    transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .nav-link:hover {
+    color: oklch(0.87 0.005 255);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: oklch(0.78 0.18 200);
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+    background: oklch(0.78 0.18 200);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-in-up,
+    .project-card,
+    .nav-link::after {
+      animation: none;
+      transition: none;
+    }
+  }
+}
