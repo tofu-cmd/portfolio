@@ -16,8 +16,8 @@ const CONTACT_LINKS = [
   {
     icon: <Phone size={16} />,
     label: "phone",
-    value: "+65 1234 5678",
-    href: "tel:+6512345678",
+    value: "Use My Email Instead",
+    href: "mailto:officiallyshaundre@outlook.com",
   },
   {
     icon: <Github size={16} />,
