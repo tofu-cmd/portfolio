@@ -10,8 +10,8 @@ const CONTACT_LINKS = [
   {
     icon: <Mail size={16} />,
     label: "email",
-    value: "placeholder@outlook.com",
-    href: "mailto:placeholder@outlook.com",
+    value: "officiallyshaundre@outlook.com",
+    href: "mailto:officiallyshaundre@outlook.com",
   },
   {
     icon: <Phone size={16} />,
