@@ -304,7 +304,7 @@ export default function Resume() {
                   Based in Singapore — open to remote.
                 </p>
                 <a
-                  href="mailto:placeholder@outlook.com"
+                  href="mailto:officiallyshaundre@outlook.com"
                   className="block text-center py-2.5 rounded text-sm font-semibold btn-press"
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
