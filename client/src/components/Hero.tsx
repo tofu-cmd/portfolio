@@ -231,7 +231,13 @@ export default function Hero() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "oklch(0.48 0.01 255)")}
             >
               <Phone size={15} />
-              +65 1234 5678
+              <a
+  href="https://wa.me/6582985165"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Contact me on WhatsApp
+</a>
             </a>
           </div>
         </div>
