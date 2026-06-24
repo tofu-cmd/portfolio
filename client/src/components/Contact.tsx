@@ -54,7 +54,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
     );
-    window.location.href = `mailto:placeholder@outlook.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:officiallyshaundre@outlook.com?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   };
